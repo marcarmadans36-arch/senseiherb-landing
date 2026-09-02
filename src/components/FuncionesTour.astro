@@ -1,0 +1,873 @@
+---
+---
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<section id="funciones" aria-labelledby="funciones-title" class="sht-sec">
+
+  <!-- Fondo difuminado -->
+  <div class="sht-bg" aria-hidden="true">
+    <img src="/assets/hero-bg.png" alt="" width="1440" height="960" />
+  </div>
+
+  <!-- Encabezado -->
+  <div class="sht-hdr">
+    <p class="sht-eye">La app por dentro</p>
+    <h2 id="funciones-title" class="sht-h2">Haz scroll y deja<br>que el <em>Sensei</em> te enseñe</h2>
+    <p class="sht-hsub">Un recorrido por las cuatro funciones como si estuvieras usando la app.</p>
+  </div>
+
+  <!-- Tour -->
+  <div class="sht-tour">
+    <div class="sht-grid">
+
+      <!-- ── iPhone central (sticky) ── -->
+      <div class="sht-pcol">
+        <div class="sht-phone">
+          <div class="sht-glow" id="sht-glow"></div>
+          <div class="sht-shell">
+            <div class="sht-btn sht-v1"></div>
+            <div class="sht-btn sht-v2"></div>
+            <div class="sht-btn sht-pw"></div>
+            <div class="sht-display">
+              <div class="sht-di"></div><!-- Dynamic Island -->
+
+              <!-- ─ Pantalla 0 · Descubrir ─ -->
+              <div class="sht-scr sht-on" data-scr="0">
+                <div class="sht-sb">
+                  <span>09:41</span>
+                  <div class="sht-icons">
+                    <svg width="13" height="9" viewBox="0 0 14 10"><rect x="0" y="3" width="3" height="7" rx=".7" fill="currentColor" opacity=".35"/><rect x="4" y="2" width="3" height="8" rx=".7" fill="currentColor" opacity=".6"/><rect x="8" y="0" width="3" height="10" rx=".7" fill="currentColor"/><rect x="12.5" y="4" width="1.5" height="6" rx=".5" fill="currentColor" opacity=".25"/></svg>
+                    <svg width="15" height="8" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="2" y="3" width="13" height="6" rx="1.5" fill="#34d399"/><rect x="22" y="3.5" width="3" height="5" rx="1.5" fill="currentColor" opacity=".4"/></svg>
+                  </div>
+                </div>
+                <div class="sht-pv">
+                  <!-- Header -->
+                  <div class="sht-app-hdr">
+                    <div>
+                      <p class="sht-eyebrow-app">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="#34d399"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2Z"/></svg>
+                        SenseiHerb
+                      </p>
+                      <h1 class="sht-screen-h1">Descubrir</h1>
+                    </div>
+                    <div class="sht-icon-btn" style="background:linear-gradient(135deg,#34d399,#059669)">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/></svg>
+                    </div>
+                  </div>
+                  <p class="sht-screen-sub">¿Cómo quieres sentirte hoy? Te orientamos sobre variedades que suelen asociarse a ese estado.</p>
+
+                  <p class="sht-section-label">Elige un mood</p>
+                  <div class="sht-mood-grid">
+                    <!-- Relajación — ocean -->
+                    <div class="sht-mc" style="background:linear-gradient(180deg,#041820 0%,#073b4c 45%,#0c6073 100%)">
+                      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 72% 18%,rgba(186,230,253,.32) 0%,transparent 55%)"></div>
+                      <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(180deg,rgba(14,165,233,.15) 0%,rgba(7,89,133,.38) 100%)"></div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.68) 0%,rgba(0,0,0,.08) 55%,transparent 100%)"></div>
+                      <span class="sht-mc-label">Relajación</span>
+                    </div>
+                    <!-- Dormir — noche -->
+                    <div class="sht-mc" style="background:linear-gradient(160deg,#010108 0%,#0c0a2e 55%,#160c38 100%)">
+                      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 18%,rgba(220,220,255,.22) 0%,transparent 45%)"></div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.68) 0%,transparent 60%)"></div>
+                      <span class="sht-mc-label">Dormir</span>
+                    </div>
+                    <!-- Creatividad — purple -->
+                    <div class="sht-mc" style="background:linear-gradient(145deg,#1a0533 0%,#3d0d6b 50%,#620f94 100%)">
+                      <div style="position:absolute;top:-12%;left:3%;width:62%;height:82%;background:radial-gradient(ellipse,rgba(236,72,153,.5) 0%,transparent 65%)"></div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.68) 0%,transparent 60%)"></div>
+                      <span class="sht-mc-label">Creatividad</span>
+                    </div>
+                    <!-- Concentración — green -->
+                    <div class="sht-mc" style="background:#040806">
+                      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 52% 82% at 50% -8%,rgba(52,211,153,.62) 0%,rgba(16,185,129,.2) 42%,transparent 68%)"></div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(4,8,6,.88) 0%,transparent 55%)"></div>
+                      <span class="sht-mc-label">Concentración</span>
+                    </div>
+                    <!-- Social — ciudad -->
+                    <div class="sht-mc" style="background:linear-gradient(180deg,#080402 0%,#1c0e02 48%,#2f1b04 100%)">
+                      <div style="position:absolute;top:12%;left:18%;width:42%;height:62%;background:radial-gradient(ellipse,rgba(251,146,60,.38) 0%,transparent 70%)"></div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.68) 0%,transparent 55%)"></div>
+                      <span class="sht-mc-label">Social</span>
+                    </div>
+                    <!-- Anti-ansiedad — forest -->
+                    <div class="sht-mc" style="background:linear-gradient(180deg,#010d09 0%,#032a1e 40%,#054f38 75%,#0a7c58 100%)">
+                      <div style="position:absolute;bottom:28%;left:0;right:0;height:42%;background:radial-gradient(ellipse 100% 60% at 50% 100%,rgba(167,243,208,.32) 0%,transparent 74%)"></div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.68) 0%,transparent 55%)"></div>
+                      <span class="sht-mc-label">Anti-ansiedad</span>
+                    </div>
+                  </div>
+
+                  <button class="sht-cta-btn">Ver recomendaciones <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+                <!-- Nav -->
+                <div class="sht-nav">
+                  <a class="sht-ni sht-nact"><div class="sht-ni-ic" style="background:linear-gradient(135deg,#34d399,#059669)"><svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="white" stroke-width="2" fill="none"/></svg></div><span>Descubrir</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg></div><span>Cámara</span></a>
+                  <div class="sht-nc"><div class="sht-nc-btn"><img src="/assets/sensei-logo.png" alt="" width="32" height="59" /></div><span>Sensei</span></div>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/></svg></div><span>Clubs</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 20c.7-3.8 3.6-6 7-6s6.3 2.2 7 6"/></svg></div><span>Perfil</span></a>
+                </div>
+              </div>
+
+              <!-- ─ Pantalla 1 · Sensei / Dojo ─ -->
+              <div class="sht-scr" data-scr="1">
+                <div class="sht-sb sht-sb-gold"><span>09:41</span><div class="sht-icons"><svg width="13" height="9" viewBox="0 0 14 10"><rect x="0" y="3" width="3" height="7" rx=".7" fill="currentColor" opacity=".35"/><rect x="4" y="2" width="3" height="8" rx=".7" fill="currentColor" opacity=".6"/><rect x="8" y="0" width="3" height="10" rx=".7" fill="currentColor"/></svg><svg width="15" height="8" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="2" y="3" width="13" height="6" rx="1.5" fill="#34d399"/><rect x="22" y="3.5" width="3" height="5" rx="1.5" fill="currentColor" opacity=".4"/></svg></div></div>
+                <div class="sht-pv">
+                  <div class="sht-dojo-hdr">
+                    <div>
+                      <h1 class="sht-screen-h1">Dojo</h1>
+                      <p class="sht-screen-sub" style="margin-top:1px">Tu maestro del autocultivo</p>
+                    </div>
+                  </div>
+
+                  <!-- RankCard -->
+                  <div class="sht-rank-card">
+                    <div class="sht-rank-left">
+                      <div class="sht-rank-ring">
+                        <svg width="44" height="44" viewBox="0 0 50 50">
+                          <circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="5"/>
+                          <circle cx="25" cy="25" r="20" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"
+                            stroke-dasharray="125.6" stroke-dashoffset="46" transform="rotate(-90 25 25)"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="sht-rank-right">
+                      <div class="sht-rank-title">Cinturón Verde · Nivel 4</div>
+                      <div class="sht-rank-sub">620 / 1000 XP · 🔥 5 días</div>
+                      <div class="sht-xpbar"><div class="sht-xpfill" style="width:62%"></div></div>
+                    </div>
+                  </div>
+
+                  <!-- Tab bar -->
+                  <div class="sht-tabs">
+                    <button class="sht-tab sht-tab-act">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M21 12a8 8 0 0 1-8 8H4l2-2a8 8 0 1 1 15-6Z"/></svg>
+                      Chat
+                    </button>
+                    <button class="sht-tab">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+                      Cultivo
+                    </button>
+                    <button class="sht-tab">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                      Tareas
+                    </button>
+                  </div>
+
+                  <!-- Mensajes de chat -->
+                  <div class="sht-chat">
+                    <div class="sht-msg-row sht-msg-sensei">
+                      <div class="sht-ava"><span>🌿</span></div>
+                      <div class="sht-bubble sht-bubble-sensei">
+                        <strong style="color:#fbbf24">¡Saludos, aprendiz!</strong> Tus Critical van por el día 24 de floración. El tricoma está madurando — pronto es el momento de cosechar.
+                      </div>
+                    </div>
+                    <div class="sht-msg-row sht-msg-user">
+                      <div class="sht-bubble sht-bubble-user">¿Cuánto más le dejo?</div>
+                    </div>
+                    <div class="sht-msg-row sht-msg-sensei">
+                      <div class="sht-ava"><span>🌿</span></div>
+                      <div class="sht-bubble sht-bubble-sensei">
+                        Con la humedad que tienes, te recomiendo <strong style="color:#fbbf24">4-6 días más</strong>. Fíjate en que el 80% de tricomas estén lechosos.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Input -->
+                  <div class="sht-input-row">
+                    <div class="sht-cam-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg></div>
+                    <div class="sht-input-fake">Pregunta al Sensei…</div>
+                    <div class="sht-send-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+                  </div>
+                </div>
+                <!-- Nav -->
+                <div class="sht-nav">
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3" stroke="rgba(255,255,255,.45)" stroke-width="1.8"/></svg></div><span>Descubrir</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg></div><span>Cámara</span></a>
+                  <div class="sht-nc"><div class="sht-nc-btn sht-nc-act"><img src="/assets/sensei-logo.png" alt="" width="32" height="59" /></div><span style="color:#fbbf24">Sensei</span></div>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/></svg></div><span>Clubs</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 20c.7-3.8 3.6-6 7-6s6.3 2.2 7 6"/></svg></div><span>Perfil</span></a>
+                </div>
+              </div>
+
+              <!-- ─ Pantalla 2 · Cámara ─ -->
+              <div class="sht-scr" data-scr="2">
+                <div class="sht-sb"><span>09:41</span><div class="sht-icons"><svg width="13" height="9" viewBox="0 0 14 10"><rect x="0" y="3" width="3" height="7" rx=".7" fill="currentColor" opacity=".35"/><rect x="4" y="2" width="3" height="8" rx=".7" fill="currentColor" opacity=".6"/><rect x="8" y="0" width="3" height="10" rx=".7" fill="currentColor"/></svg><svg width="15" height="8" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="2" y="3" width="13" height="6" rx="1.5" fill="#34d399"/><rect x="22" y="3.5" width="3" height="5" rx="1.5" fill="currentColor" opacity=".4"/></svg></div></div>
+                <div class="sht-pv">
+                  <div class="sht-app-hdr">
+                    <div>
+                      <p class="sht-eyebrow-app" style="color:#34d399">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>
+                        Escáner IA
+                      </p>
+                      <h1 class="sht-screen-h1">Informe</h1>
+                    </div>
+                  </div>
+                  <!-- Visor -->
+                  <div class="sht-viewfinder">
+                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(165,243,207,.65)" stroke-width="1.1">
+                      <path d="M12 21V8M12 8c-2-1.4-5-1.2-7.5.8 1.8 2.6 4.8 3.2 7.5 1.8ZM12 8c2-1.4 5-1.2 7.5.8-1.8 2.6-4.8 3.2-7.5 1.8ZM12 12c-1.8-1.2-4.3-.9-6.4 1M12 12c1.8-1.2 4.3-.9 6.4 1"/>
+                    </svg>
+                    <div class="sht-sc sht-sc-tl"></div><div class="sht-sc sht-sc-tr"></div>
+                    <div class="sht-sc sht-sc-bl"></div><div class="sht-sc sht-sc-br"></div>
+                    <div class="sht-photo-tag">📷 Analizado · luz buena</div>
+                  </div>
+                  <!-- Resultado -->
+                  <div class="sht-result-hdr">
+                    <span>Informe de estado</span>
+                    <span class="sht-grade">Buen estado</span>
+                  </div>
+                  <div class="sht-result-ok">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                    Tricomas lechosos: punto óptimo para cosechar.
+                  </div>
+                  <div class="sht-result-ok">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                    Sin signos visibles de plagas o enfermedades.
+                  </div>
+                  <div class="sht-alert">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.2"><path d="M12 9v4M12 17h.01M10.3 4 3 17a2 2 0 0 0 1.7 3h14.6a2 2 0 0 0 1.7-3L13.7 4a2 2 0 0 0-3.4 0Z"/></svg>
+                    Posible humedad en la base — vigila el moho.
+                  </div>
+                </div>
+                <!-- Nav -->
+                <div class="sht-nav">
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12" stroke="rgba(255,255,255,.45)" stroke-width="1.8"/></svg></div><span>Descubrir</span></a>
+                  <a class="sht-ni sht-nact"><div class="sht-ni-ic" style="background:linear-gradient(135deg,#34d399,#059669)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg></div><span>Cámara</span></a>
+                  <div class="sht-nc"><div class="sht-nc-btn"><img src="/assets/sensei-logo.png" alt="" width="32" height="59" /></div><span>Sensei</span></div>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/></svg></div><span>Clubs</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 20c.7-3.8 3.6-6 7-6s6.3 2.2 7 6"/></svg></div><span>Perfil</span></a>
+                </div>
+              </div>
+
+              <!-- ─ Pantalla 3 · Clubs ─ -->
+              <div class="sht-scr sht-map-scr" data-scr="3">
+                <div class="sht-sb sht-sb-over"><span>09:41</span><div class="sht-icons"><svg width="13" height="9" viewBox="0 0 14 10"><rect x="0" y="3" width="3" height="7" rx=".7" fill="currentColor" opacity=".35"/><rect x="4" y="2" width="3" height="8" rx=".7" fill="currentColor" opacity=".6"/><rect x="8" y="0" width="3" height="10" rx=".7" fill="currentColor"/></svg><svg width="15" height="8" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="2" y="3" width="13" height="6" rx="1.5" fill="#34d399"/><rect x="22" y="3.5" width="3" height="5" rx="1.5" fill="currentColor" opacity=".4"/></svg></div></div>
+                <div id="sht-map"></div>
+                <!-- Overlay inferior -->
+                <div class="sht-map-ov">
+                  <p class="sht-map-title">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/></svg>
+                    Clubs cerca de ti · Barcelona
+                  </p>
+                  <div class="sht-club">
+                    <div class="sht-club-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+                    <div><b>Barcelona Cannabis Club</b><small>Eixample · 620 m</small></div>
+                    <span class="sht-star">★ 4.9</span>
+                  </div>
+                  <div class="sht-club" style="opacity:.6">
+                    <div class="sht-club-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+                    <div><b>Gràcia Canna Society</b><small>Gràcia · 1.2 km</small></div>
+                    <span class="sht-star">★ 4.7</span>
+                  </div>
+                </div>
+                <!-- Nav -->
+                <div class="sht-nav sht-nav-over">
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3" stroke="rgba(255,255,255,.45)" stroke-width="1.8"/></svg></div><span>Descubrir</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg></div><span>Cámara</span></a>
+                  <div class="sht-nc"><div class="sht-nc-btn"><img src="/assets/sensei-logo.png" alt="" width="32" height="59" /></div><span>Sensei</span></div>
+                  <a class="sht-ni sht-nact"><div class="sht-ni-ic" style="background:linear-gradient(135deg,#34d399,#059669)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/></svg></div><span>Clubs</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 20c.7-3.8 3.6-6 7-6s6.3 2.2 7 6"/></svg></div><span>Perfil</span></a>
+                </div>
+              </div>
+
+              <!-- ─ Pantalla 4 · Cocina del Sensei ─ -->
+              <div class="sht-scr" data-scr="4">
+                <div class="sht-sb sht-sb-gold"><span>09:41</span><div class="sht-icons"><svg width="13" height="9" viewBox="0 0 14 10"><rect x="0" y="3" width="3" height="7" rx=".7" fill="currentColor" opacity=".35"/><rect x="4" y="2" width="3" height="8" rx=".7" fill="currentColor" opacity=".6"/><rect x="8" y="0" width="3" height="10" rx=".7" fill="currentColor"/></svg><svg width="15" height="8" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="2" y="3" width="13" height="6" rx="1.5" fill="#34d399"/><rect x="22" y="3.5" width="3" height="5" rx="1.5" fill="currentColor" opacity=".4"/></svg></div></div>
+                <div class="sht-pv sht-pv-cocina">
+                  <!-- Header -->
+                  <div class="sht-cocina-hdr">
+                    <div class="sht-cocina-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><path d="M2 8h20M12 4v4"/></svg>
+                    </div>
+                    <h1 class="sht-cocina-title">La Cocina del Sensei</h1>
+                  </div>
+                  <p class="sht-screen-sub" style="margin-top:8px">Educación culinaria y calculadora de dosificación. Solo +18. Empieza poco y espera 2 horas.</p>
+
+                  <!-- Buscador -->
+                  <div class="sht-cocina-search-row">
+                    <div class="sht-cocina-search">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+                      <span>Buscar recetas…</span>
+                    </div>
+                    <div class="sht-cocina-iconbtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M4 6h16M8 12h8M11 18h2"/></svg></div>
+                    <div class="sht-cocina-iconbtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/><path d="M12 8v4l3 2"/></svg></div>
+                  </div>
+
+                  <!-- Chips -->
+                  <div class="sht-cocina-chips">
+                    <span class="sht-cocina-chip">♡ Favoritas</span>
+                    <span class="sht-cocina-chip">Dulce</span>
+                    <span class="sht-cocina-chip">Salado</span>
+                  </div>
+                  <div class="sht-cocina-chips">
+                    <span class="sht-cocina-chip">Snacks</span>
+                    <span class="sht-cocina-chip">Bebidas</span>
+                    <span class="sht-cocina-chip">Alta cocina</span>
+                  </div>
+
+                  <!-- Banner 15 bases -->
+                  <div class="sht-cocina-banner">
+                    <div>
+                      <p class="sht-cocina-banner-title">Las 15 bases del Sensei</p>
+                      <p class="sht-cocina-banner-sub">Extracciones: mantequilla, aceites, tinturas y más</p>
+                    </div>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><path d="m9 6 6 6-6 6"/></svg>
+                  </div>
+
+                  <p class="sht-cocina-section">Todas las recetas <span>100</span></p>
+
+                  <!-- Grid de recetas -->
+                  <div class="sht-cocina-recgrid">
+                    <div class="sht-cocina-reccard">
+                      <div class="sht-cocina-rectop">
+                        <span class="sht-cocina-badge">Con tus bases</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+                      </div>
+                      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" style="margin:8px auto"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M5 8h14M9 8c0-3 1-5 3-5s3 2 3 5"/></svg>
+                      <p class="sht-cocina-reccat">Snacks</p>
+                      <p class="sht-cocina-recname">Palomitas con mantequilla del Sensei</p>
+                      <p class="sht-cocina-recmeta">⏱ 15 min · 🔥 Fácil</p>
+                      <p class="sht-cocina-recmeta">★ 5,0 · 2</p>
+                    </div>
+                    <div class="sht-cocina-reccard">
+                      <div class="sht-cocina-rectop">
+                        <span class="sht-cocina-badge">Con tus bases</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+                      </div>
+                      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" style="margin:8px auto"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="#fbbf24"/><circle cx="14" cy="9" r="1" fill="#fbbf24"/><circle cx="13" cy="14" r="1" fill="#fbbf24"/></svg>
+                      <p class="sht-cocina-reccat">Dulce</p>
+                      <p class="sht-cocina-recname">Brownie clásico del Sensei</p>
+                      <p class="sht-cocina-recmeta">⏱ 50 min · 🔥 Fácil</p>
+                      <p class="sht-cocina-recmeta">★ 5,0 · 1</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Nav -->
+                <div class="sht-nav">
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3" stroke="rgba(255,255,255,.45)" stroke-width="1.8"/></svg></div><span>Descubrir</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg></div><span>Cámara</span></a>
+                  <div class="sht-nc"><div class="sht-nc-btn sht-nc-act"><img src="/assets/sensei-logo.png" alt="" width="32" height="59" /></div><span style="color:#fbbf24">Sensei</span></div>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><path d="M12 21s7-6.5 7-12A7 7 0 0 0 5 9c0 5.5 7 12 7 12Z"/></svg></div><span>Ubicación</span></a>
+                  <a class="sht-ni"><div class="sht-ni-ic"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M5 20c.7-3.8 3.6-6 7-6s6.3 2.2 7 6"/></svg></div><span>Perfil</span></a>
+                </div>
+              </div>
+
+            </div><!-- /sht-display -->
+          </div><!-- /sht-shell -->
+        </div><!-- /sht-phone -->
+      </div><!-- /sht-pcol -->
+
+      <!-- ── Steps de texto ── -->
+      <div class="sht-steps">
+
+        <!-- step 0 → columna 3 (derecha del phone) -->
+        <div class="sht-step sht-sr" data-step="0">
+          <div class="sht-inner">
+            <p class="sht-stag" style="color:#34d399">Descubrir</p>
+            <h3 class="sht-sh3">Empieza por tu estado de ánimo</h3>
+            <p class="sht-sp">Elige cómo quieres sentirte y el Sensei te orienta sobre variedades asociadas a ese estado. Sin tecnicismos, sin humo.</p>
+            <ul class="sht-ul">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Recomendación por mood</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Catálogo con efectos</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>500+ variedades</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 1 → columna 1 (izquierda del phone) -->
+        <div class="sht-step sht-sl" data-step="1">
+          <div class="sht-inner">
+            <p class="sht-stag" style="color:#fbbf24">El Dojo</p>
+            <h3 class="sht-sh3">Un maestro para tus plantas</h3>
+            <p class="sht-sp">El Sensei IA conoce cada fase de tu cultivo. Responde en tiempo real, recuerda tus tareas y te hace subir de cinturón.</p>
+            <ul class="sht-ul">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Chat experto 24/7</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Seguimiento por fases</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Progreso y cinturones</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 2 → columna 3 (derecha) -->
+        <div class="sht-step sht-sr" data-step="2">
+          <div class="sht-inner">
+            <p class="sht-stag" style="color:#34d399">Escáner IA</p>
+            <h3 class="sht-sh3">Una foto lo dice todo</h3>
+            <p class="sht-sp">Fotografía tu material y recibe un informe de estado, calidad estimada y alertas de seguridad al instante.</p>
+            <ul class="sht-ul">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Análisis visual por IA</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Perfil de terpenos</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Alertas de moho y humedad</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 3 → columna 1 (izquierda) -->
+        <div class="sht-step sht-sl" data-step="3">
+          <div class="sht-inner">
+            <p class="sht-stag" style="color:#34d399">Clubs</p>
+            <h3 class="sht-sh3">Tu asociación en el mapa</h3>
+            <p class="sht-sp">Directorio verificado de asociaciones cannábicas en España. Filtra por distancia y consulta horarios. Solo información.</p>
+            <ul class="sht-ul">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>116+ clubs en España</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Geolocalización</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Datos verificados</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- step 4 → columna 3 (derecha) -->
+        <div class="sht-step sht-sr" data-step="4">
+          <div class="sht-inner">
+            <p class="sht-stag" style="color:#fbbf24">Cocina del Sensei</p>
+            <h3 class="sht-sh3">Y un maestro en tu cocina</h3>
+            <p class="sht-sp">100 recetas cannábicas con la dosis calculada al miligramo: dile tu nivel y tus raciones, y el Sensei se encarga del resto. 15 bases maestras explicadas paso a paso, para principiantes absolutos.</p>
+            <ul class="sht-ul">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>100 recetas con dosis en mg</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>15 bases paso a paso</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Para principiantes absolutos</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /sht-steps -->
+    </div><!-- /sht-grid -->
+  </div><!-- /sht-tour -->
+
+  <div class="sht-footer">
+    <a href="#registro" class="sht-cta-final">
+      Quiero acceso anticipado
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<style>
+/* ─── Variables ─────────────────────────────── */
+.sht-sec{
+  --g:#34d399;--go:#059669;--gold:#fbbf24;--gold2:#d97706;
+  --bg:#080e0b;--surf:#0d1710;
+  --line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.13);
+  --mt:rgba(255,255,255,.5);--mt2:rgba(255,255,255,.28);
+  position:relative;
+  font-family:'Inter',system-ui,sans-serif;
+}
+
+/* ─── Fondo ─────────────────────────────────── */
+.sht-bg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.sht-bg img{width:100%;height:100%;object-fit:cover;opacity:.07;filter:blur(8px);transform:scale(1.04)}
+.sht-bg::after{content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom,#080e0b 0%,transparent 12%,transparent 88%,#080e0b 100%),
+    linear-gradient(to right,#080e0b 0%,transparent 22%,transparent 78%,#080e0b 100%);
+}
+
+/* ─── Header ─────────────────────────────────── */
+.sht-hdr{position:relative;z-index:2;text-align:center;padding:96px 24px 48px;max-width:640px;margin:0 auto}
+.sht-eye{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:#34d399;margin-bottom:14px}
+.sht-h2{font-family:'Zen Kaku Gothic New',system-ui;font-weight:900;font-size:clamp(28px,4.5vw,46px);color:#fff;line-height:1.15}
+.sht-h2 em{font-style:normal;color:#f59e0b}
+.sht-hsub{color:var(--mt);font-size:16px;margin-top:14px;line-height:1.6}
+
+/* ─── Tour ───────────────────────────────────── */
+.sht-tour{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* ─── Grid ───────────────────────────────────── */
+.sht-grid{display:grid;grid-template-columns:1fr 286px 1fr}
+
+/* ─── Phone column (sticky) ─────────────────── */
+.sht-pcol{
+  grid-column:2;grid-row:1;
+  position:sticky;top:0;height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  z-index:10;pointer-events:none;
+}
+
+/* ─── Steps overlay ──────────────────────────── */
+.sht-steps{
+  grid-column:1/-1;grid-row:1;           /* ocupa todo el grid, misma fila que phone */
+  display:grid;
+  grid-template-columns:1fr 286px 1fr;   /* igual que sht-grid */
+  position:relative;z-index:5;pointer-events:none;
+}
+
+/* ─── Cada step ──────────────────────────────── */
+.sht-step{min-height:100vh;display:flex;align-items:center;padding:40px 0}
+
+/* Fila explícita para que cada step ocupe su propia fila */
+.sht-step:nth-child(1){grid-row:1}
+.sht-step:nth-child(2){grid-row:2}
+.sht-step:nth-child(3){grid-row:3}
+.sht-step:nth-child(4){grid-row:4}
+.sht-step:nth-child(5){grid-row:5}
+
+/* sr = RIGHT of phone → column 3, text left-aligned */
+.sht-sr{grid-column:3;justify-content:flex-start;padding-left:32px}
+/* sl = LEFT of phone  → column 1, text right-aligned */
+.sht-sl{grid-column:1;justify-content:flex-end;padding-right:32px}
+
+.sht-inner{
+  max-width:290px;pointer-events:auto;
+  opacity:.15;transform:translateY(16px);
+  transition:opacity .5s,transform .5s;
+}
+.sht-step.sht-on .sht-inner{opacity:1;transform:none}
+
+.sht-sr .sht-inner{text-align:left}
+.sht-sl .sht-inner{text-align:right}
+
+.sht-stag{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:12px;display:block}
+.sht-sh3{font-family:'Zen Kaku Gothic New',system-ui;font-weight:700;font-size:clamp(19px,2.2vw,26px);color:#fff;line-height:1.25;margin-bottom:11px}
+.sht-sp{color:var(--mt);font-size:14px;line-height:1.65}
+.sht-ul{list-style:none;margin-top:15px;display:flex;flex-direction:column;gap:8px}
+.sht-ul li{font-size:13px;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:7px}
+.sht-ul li svg{width:15px;height:15px;flex-shrink:0}
+.sht-sl .sht-ul{align-items:flex-end}
+.sht-sl .sht-ul li{flex-direction:row-reverse}
+
+/* ─── iPhone shell ───────────────────────────── */
+.sht-phone{position:relative;pointer-events:auto}
+.sht-glow{
+  position:absolute;inset:-30px;
+  filter:blur(50px);opacity:.45;z-index:-1;
+  transition:background .7s;border-radius:50%;
+  background:radial-gradient(circle,rgba(52,211,153,.65),transparent 65%);
+}
+.sht-shell{
+  position:relative;width:262px;
+  background:linear-gradient(170deg,#2c2c2e,#1c1c1e);
+  border-radius:50px;padding:10px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 70px 130px -20px rgba(0,0,0,.98),
+    0 20px 60px -10px rgba(0,0,0,.7);
+}
+.sht-btn{position:absolute;background:linear-gradient(180deg,#3a3a3c,#2c2c2e);border-radius:3px}
+.sht-v1{left:-3px;top:108px;width:3px;height:30px}
+.sht-v2{left:-3px;top:148px;width:3px;height:30px}
+.sht-pw{right:-3px;top:128px;width:3px;height:42px}
+.sht-display{position:relative;border-radius:40px;overflow:hidden;background:#080e0b;height:548px}
+.sht-di{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:108px;height:30px;background:#000;border-radius:20px;z-index:50}
+
+/* ─── Status bar ─────────────────────────────── */
+.sht-sb{
+  position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;
+  padding:42px 20px 4px;font-size:11.5px;font-weight:600;color:#fff;
+}
+.sht-sb-gold{color:#fff}
+.sht-sb-over{position:absolute;top:0;left:0;right:0;z-index:20;padding-top:42px;
+  background:linear-gradient(to bottom,rgba(8,14,11,.92),transparent)}
+.sht-icons{display:flex;align-items:center;gap:5px;color:#fff}
+
+/* ─── Screens ────────────────────────────────── */
+.sht-scr{
+  position:absolute;inset:0;overflow:hidden;background:#080e0b;
+  opacity:0;transform:scale(1.04);pointer-events:none;
+  transition:opacity .5s,transform .6s;
+}
+.sht-scr.sht-on{opacity:1;transform:scale(1)}
+.sht-map-scr{padding:0}
+
+/* ─── Screen content padding ─────────────────── */
+.sht-pv{padding:0 16px 62px;height:100%;overflow:hidden;position:relative}
+
+/* ─── App header ─────────────────────────────── */
+.sht-app-hdr{display:flex;justify-content:space-between;align-items:flex-start;padding-top:3px}
+.sht-dojo-hdr{padding-top:3px}
+.sht-eyebrow-app{display:flex;align-items:center;gap:5px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:2px}
+.sht-screen-h1{font-family:'Zen Kaku Gothic New',system-ui;font-weight:700;font-size:24px;color:#fff;margin:0}
+.sht-screen-sub{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;margin-top:3px}
+.sht-icon-btn{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sht-section-label{font-size:14px;font-weight:600;color:#fff;margin-top:12px;margin-bottom:8px}
+
+/* ─── Mood grid ──────────────────────────────── */
+.sht-mood-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.sht-mc{
+  height:78px;border-radius:12px;position:relative;
+  overflow:hidden;border:1px solid rgba(255,255,255,.07);
+  display:flex;align-items:flex-end;
+}
+.sht-mc-label{
+  position:relative;z-index:2;padding:8px;
+  font-size:11.5px;font-weight:600;color:#fff;
+  text-shadow:0 1px 6px rgba(0,0,0,.8);
+}
+
+/* ─── CTA dentro de pantalla ─────────────────── */
+.sht-cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  width:100%;height:42px;border-radius:14px;margin-top:10px;
+  background:linear-gradient(135deg,#34d399,#059669);
+  color:#fff;font-weight:700;font-size:12.5px;border:none;
+  cursor:pointer;
+}
+
+/* ─── Dojo: RankCard ─────────────────────────── */
+.sht-rank-card{
+  display:flex;gap:10px;align-items:center;
+  background:rgba(13,23,16,.9);border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;padding:12px;margin-top:10px;
+}
+.sht-rank-left{flex-shrink:0}
+.sht-rank-title{font-family:'Zen Kaku Gothic New',system-ui;font-weight:700;font-size:12px;color:#fff}
+.sht-rank-sub{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px}
+.sht-xpbar{height:4px;border-radius:4px;background:rgba(255,255,255,.07);margin-top:6px;overflow:hidden}
+.sht-xpfill{height:100%;border-radius:4px;background:linear-gradient(90deg,#fbbf24,#fde68a)}
+
+/* ─── Dojo: Tabs ─────────────────────────────── */
+.sht-tabs{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:4px;margin-top:10px;
+}
+.sht-tab{
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  height:32px;border-radius:10px;font-size:11px;font-weight:600;
+  color:rgba(255,255,255,.45);border:none;background:none;cursor:pointer;
+}
+.sht-tab-act{color:#fff;background:linear-gradient(135deg,#fbbf24,#d97706)}
+
+/* ─── Dojo: Chat ─────────────────────────────── */
+.sht-chat{display:flex;flex-direction:column;gap:8px;margin-top:10px;overflow:hidden}
+.sht-msg-row{display:flex;gap:6px;align-items:flex-start}
+.sht-msg-user{justify-content:flex-end}
+.sht-msg-sensei{justify-content:flex-start}
+.sht-ava{width:28px;height:28px;border-radius:50%;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.sht-bubble{max-width:78%;border-radius:16px;padding:8px 11px;font-size:11px;line-height:1.5}
+.sht-bubble-sensei{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.9);border-radius:4px 16px 16px 16px}
+.sht-bubble-user{background:linear-gradient(135deg,#34d399,#059669);color:#fff;border-radius:16px 4px 16px 16px}
+
+/* ─── Dojo: Input ────────────────────────────── */
+.sht-input-row{display:flex;gap:6px;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.05)}
+.sht-cam-btn{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sht-input-fake{flex:1;height:38px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.3);display:flex;align-items:center;padding:0 12px}
+.sht-send-btn{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:linear-gradient(135deg,#fbbf24,#d97706)}
+
+/* ─── Cocina del Sensei: catálogo ────────────── */
+.sht-pv-cocina{overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:3px}
+.sht-cocina-hdr{display:flex;align-items:center;gap:12px}
+.sht-cocina-icon{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#fbbf24,#d97706);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px -2px rgba(251,191,36,.4);
+}
+.sht-cocina-title{font-family:'Zen Kaku Gothic New',system-ui;font-weight:800;font-size:19px;color:#fff;line-height:1.2}
+
+.sht-cocina-search-row{display:flex;gap:6px;margin-top:14px}
+.sht-cocina-search{
+  flex:1;display:flex;align-items:center;gap:6px;height:34px;padding:0 10px;
+  border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  font-size:11px;color:rgba(255,255,255,.35);
+}
+.sht-cocina-iconbtn{width:34px;height:34px;border-radius:12px;flex-shrink:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+
+.sht-cocina-chips{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.sht-cocina-chip{font-size:10.5px;font-weight:600;color:rgba(255,255,255,.8);padding:6px 12px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);white-space:nowrap}
+
+.sht-cocina-banner{
+  margin-top:12px;padding:12px 14px;border-radius:16px;
+  background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.sht-cocina-banner-title{font-size:13px;font-weight:700;color:#fbbf24}
+.sht-cocina-banner-sub{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px;line-height:1.4}
+
+.sht-cocina-section{font-size:14px;font-weight:700;color:#fff;margin-top:14px}
+.sht-cocina-section span{font-size:11px;font-weight:500;color:rgba(255,255,255,.35);margin-left:4px}
+
+.sht-cocina-recgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.sht-cocina-reccard{
+  background:radial-gradient(ellipse at 50% 0%,rgba(251,191,36,.1),transparent 60%),rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:9px;text-align:center;
+}
+.sht-cocina-rectop{display:flex;align-items:center;justify-content:space-between}
+.sht-cocina-badge{font-size:7.5px;font-weight:700;color:#1c1305;background:#fbbf24;padding:2px 6px;border-radius:20px;text-transform:uppercase;letter-spacing:.02em}
+.sht-cocina-reccat{font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#fbbf24;margin-top:2px}
+.sht-cocina-recname{font-size:11px;font-weight:700;color:#fff;line-height:1.3;margin-top:2px}
+.sht-cocina-recmeta{font-size:9px;color:rgba(255,255,255,.45);margin-top:4px}
+
+/* ─── Cámara: visor ──────────────────────────── */
+.sht-viewfinder{
+  height:140px;border-radius:14px;margin-top:10px;
+  background:radial-gradient(circle at 50% 40%,#1a3d22,#0a1810);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;border:1px solid rgba(255,255,255,.08);overflow:hidden;
+}
+.sht-sc{position:absolute;width:13px;height:13px;border-color:#34d399;border-style:solid;opacity:.7}
+.sht-sc-tl{top:7px;left:7px;border-width:2px 0 0 2px;border-radius:2px 0 0 0}
+.sht-sc-tr{top:7px;right:7px;border-width:2px 2px 0 0;border-radius:0 2px 0 0}
+.sht-sc-bl{bottom:7px;left:7px;border-width:0 0 2px 2px;border-radius:0 0 0 2px}
+.sht-sc-br{bottom:7px;right:7px;border-width:0 2px 2px 0;border-radius:0 0 2px 0}
+.sht-photo-tag{position:absolute;bottom:7px;left:7px;font-size:9.5px;font-weight:600;color:#fff;background:rgba(0,0,0,.55);padding:3px 8px;border-radius:7px}
+
+.sht-result-hdr{display:flex;align-items:center;justify-content:space-between;margin-top:11px;font-size:12px;font-weight:700;color:#fff}
+.sht-grade{font-size:9.5px;font-weight:700;color:#04130d;background:#34d399;padding:3px 8px;border-radius:20px}
+.sht-result-ok{display:flex;gap:7px;align-items:flex-start;font-size:11px;color:rgba(210,230,220,.85);margin-top:8px;line-height:1.45}
+.sht-result-ok svg{flex-shrink:0;margin-top:1px}
+.sht-alert{margin-top:8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:9px;padding:8px;font-size:11px;color:rgba(253,220,150,.9);display:flex;gap:7px;line-height:1.45}
+.sht-alert svg{flex-shrink:0;margin-top:1px}
+
+/* ─── Clubs: mapa ────────────────────────────── */
+#sht-map{position:absolute;inset:0;width:100%;height:100%}
+.sht-map-ov{
+  position:absolute;bottom:60px;left:0;right:0;z-index:15;
+  padding:16px 13px 12px;
+  background:linear-gradient(to top,rgba(8,14,11,1) 0%,rgba(8,14,11,.95) 55%,transparent 100%);
+}
+.sht-map-title{display:flex;align-items:center;gap:5px;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#34d399;margin-bottom:8px}
+.sht-club{display:flex;align-items:center;gap:9px;background:rgba(13,23,16,.9);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:9px;margin-bottom:6px}
+.sht-club-ic{width:30px;height:30px;border-radius:8px;background:rgba(52,211,153,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sht-club b{font-size:11.5px;font-weight:600;color:#fff;display:block}
+.sht-club small{font-size:10px;color:rgba(255,255,255,.45)}
+.sht-star{margin-left:auto;color:#f59e0b;font-size:11px;font-weight:700;white-space:nowrap}
+
+/* ─── Bottom nav ─────────────────────────────── */
+.sht-nav{
+  position:absolute;bottom:0;left:0;right:0;
+  height:58px;
+  background:rgba(8,14,11,.88);backdrop-filter:blur(14px);
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:space-around;
+  z-index:15;padding:0 4px;
+}
+.sht-nav-over{z-index:20;background:rgba(8,14,11,.92)}
+.sht-ni{display:flex;flex-direction:column;align-items:center;gap:2.5px;text-decoration:none}
+.sht-ni span{font-size:8px;color:rgba(255,255,255,.3);font-weight:500}
+.sht-nact span{color:#34d399}
+.sht-ni-ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05)}
+.sht-ni-ic svg{width:16px;height:16px}
+/* Centro Sensei */
+.sht-nc{display:flex;flex-direction:column;align-items:center;gap:2.5px;margin-top:-16px}
+.sht-nc span{font-size:8px;color:rgba(251,191,36,.5);font-weight:600}
+.sht-nc-btn{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#78350f,#92400e);display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(251,191,36,.2),0 4px 10px rgba(0,0,0,.5)}
+.sht-nc-btn img{width:32px;height:auto;object-fit:contain}
+.sht-nc-act{background:linear-gradient(135deg,#fbbf24,#d97706);box-shadow:0 0 22px rgba(251,191,36,.6),0 4px 12px rgba(0,0,0,.5)}
+
+/* ─── Footer CTA ─────────────────────────────── */
+.sht-footer{position:relative;z-index:2;text-align:center;padding:56px 24px 88px}
+.sht-cta-final{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 32px;border-radius:20px;font-weight:700;font-size:14px;color:#fff;text-decoration:none;background:linear-gradient(135deg,#34d399,#059669);box-shadow:0 8px 32px -8px rgba(52,211,153,.35);transition:transform .2s,box-shadow .2s}
+.sht-cta-final:hover{transform:scale(1.04);box-shadow:0 12px 40px -8px rgba(52,211,153,.5)}
+
+/* ─── Mobile ─────────────────────────────────── */
+@media(max-width:860px){
+  .sht-grid{grid-template-columns:1fr;grid-template-rows:auto auto}
+
+  /* iPhone: sticky arriba, compacto, escalado para que quepa */
+  .sht-pcol{
+    grid-column:1;grid-row:1;
+    position:sticky;top:0;
+    height:50vh;
+    background:#080e0b;
+    z-index:10;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    overflow:hidden;
+    align-items:flex-start;
+    padding-top:10px;
+  }
+  .sht-phone{transform:scale(0.6);transform-origin:top center}
+  .sht-glow{filter:blur(36px);opacity:.15}
+
+  /* Steps: debajo del iPhone, solo tag + bullets */
+  .sht-steps{grid-column:1;grid-row:2;display:flex;flex-direction:column}
+  .sht-sr,.sht-sl{
+    grid-column:unset;
+    justify-content:center;
+    align-items:center;
+    padding:48px 28px;
+    min-height:50vh;
+  }
+  .sht-inner{
+    max-width:340px;
+    text-align:center !important;
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+  /* Ocultar título y descripción en móvil — solo tag + bullets */
+  .sht-sh3,.sht-sp{display:none}
+  .sht-stag{font-size:12px;margin-bottom:20px}
+  .sht-ul{align-items:center;gap:12px}
+  .sht-ul li{flex-direction:row !important;font-size:14px;color:rgba(255,255,255,.8)}
+  .sht-ul li svg{width:14px;height:14px;flex-shrink:0}
+}
+</style>
+
+<script>
+(function() {
+  const steps   = Array.from(document.querySelectorAll('.sht-step'));
+  const screens = Array.from(document.querySelectorAll('.sht-scr'));
+  const glow    = document.getElementById('sht-glow');
+  let current   = -1;
+  let mapInited = false;
+
+  const GLOWS = [
+    'radial-gradient(circle,rgba(52,211,153,.65),transparent 65%)',
+    'radial-gradient(circle,rgba(251,191,36,.6),transparent 65%)',
+    'radial-gradient(circle,rgba(52,211,153,.55),transparent 65%)',
+    'radial-gradient(circle,rgba(21,101,192,.5),transparent 65%)',
+    'radial-gradient(circle,rgba(251,191,36,.6),transparent 65%)',
+  ];
+
+  function setScreen(i) {
+    if (i === current) return;
+    current = i;
+    screens.forEach(s => s.classList.toggle('sht-on', +s.dataset.scr === i));
+    steps.forEach(s   => s.classList.toggle('sht-on', +s.dataset.step === i));
+    if (glow) glow.style.background = GLOWS[i] || GLOWS[0];
+    if (i === 3 && !mapInited) initMap();
+  }
+
+  function initMap() {
+    mapInited = true;
+    const scr = document.createElement('script');
+    scr.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    scr.onload = buildMap;
+    document.head.appendChild(scr);
+  }
+
+  function buildMap() {
+    const el = document.getElementById('sht-map');
+    if (!el || !window.L) return;
+    const map = window.L.map(el, {
+      center: [41.389, 2.158], zoom: 14,
+      zoomControl: false, attributionControl: false,
+      dragging: false, scrollWheelZoom: false,
+      doubleClickZoom: false, touchZoom: false,
+    });
+    window.L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+      { maxZoom: 19 }
+    ).addTo(map);
+    const clubs = [
+      { ll:[41.3892,2.1643], hi:true },
+      { ll:[41.4028,2.1558] },
+      { ll:[41.3762,2.1498] },
+      { ll:[41.4060,2.1402] },
+      { ll:[41.4002,2.1980] },
+      { ll:[41.3824,2.1760] },
+    ];
+    clubs.forEach(c => {
+      const size = c.hi ? 14 : 10;
+      const color = c.hi ? '#34d399' : 'rgba(52,211,153,.5)';
+      const shadow = c.hi ? 'box-shadow:0 0 0 6px rgba(52,211,153,.2);' : '';
+      const icon = window.L.divIcon({
+        className: '',
+        html: `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid #fff;${shadow}"></div>`,
+        iconSize: [size, size], iconAnchor: [size/2, size/2],
+      });
+      window.L.marker(c.ll, { icon }).addTo(map);
+    });
+    setTimeout(() => map.invalidateSize(), 120);
+  }
+
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) setScreen(+e.target.dataset.step); }),
+    { threshold: 0.4 }
+  );
+  steps.forEach(s => io.observe(s));
+  setScreen(0);
+})();
+</script>

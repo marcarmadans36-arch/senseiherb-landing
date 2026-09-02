@@ -1,0 +1,38 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-dojo-bg border-t border-dojo-border py-12 px-5" role="contentinfo">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="/assets/sensei-logo.png" alt="SenseiHerb" class="w-7 h-auto opacity-60" width="28" height="52" loading="lazy" />
+        <span class="font-display font-bold text-white/70 tracking-widest text-sm uppercase">SenseiHerb</span>
+      </div>
+
+      <!-- Links -->
+      <nav aria-label="Navegación del pie de página">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-dojo-muted">
+          <li><a href="/privacidad" class="hover:text-white transition focus-visible:outline focus-visible:outline-1 focus-visible:outline-dojo-green rounded">Privacidad</a></li>
+          <li><a href="/terminos" class="hover:text-white transition focus-visible:outline focus-visible:outline-1 focus-visible:outline-dojo-green rounded">Términos</a></li>
+          <li><a href="mailto:legal@senseiherb.com" class="hover:text-white transition focus-visible:outline focus-visible:outline-1 focus-visible:outline-dojo-green rounded">legal@senseiherb.com</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-8 h-px bg-dojo-border" />
+
+    <!-- Aviso legal -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-dojo-muted/50">
+      <p>© {year} SenseiHerb. Todos los derechos reservados.</p>
+      <p class="max-w-md text-right md:text-right">
+        <strong class="text-dojo-muted/70">+18 · Solo uso informativo.</strong> SenseiHerb es una guía educativa sobre cannabis y CBD. No fomenta el consumo, no vende productos y no sustituye el asesoramiento médico o legal. El acceso a este sitio implica ser mayor de 18 años.
+      </p>
+    </div>
+
+  </div>
+</footer>

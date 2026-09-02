@@ -1,0 +1,185 @@
+---
+const FEATURES = [
+  {
+    number:    "01",
+    icon:      "/assets/icono-catalogo.png",
+    iconAlt:   "Ilustración del catálogo de variedades",
+    label:     "Inteligencia artificial",
+    title:     "Recomendador y análisis de material",
+    desc:      "Dinos cómo quieres sentirte y la IA cruza tu perfil con cientos de variedades. ¿Tienes muestra a mano? Fotografíala y obtén su perfil de terpenos y cannabinoides al instante.",
+    chips:     ["Recomendador por estado", "Análisis por foto", "Base de 500+ variedades"],
+    accentHex: "#34d399",
+    imgSide:   "right",
+    bgAccent:  "rgba(52,211,153,0.06)",
+  },
+  {
+    number:    "02",
+    icon:      "/assets/icono-mood.png",
+    iconAlt:   "Ilustración del Sensei asistente de cultivo",
+    label:     "Asistente de cultivo",
+    title:     "El Sensei, siempre a tu lado",
+    desc:      "Un asistente IA especializado que conoce cada fase de tu planta. Riego, nutrientes, iluminación, plagas — resuelve dudas en tiempo real y recuerda el historial de tu cultivo.",
+    chips:     ["Chat en tiempo real", "Seguimiento de fases", "Diagnóstico de problemas"],
+    accentHex: "#f59e0b",
+    imgSide:   "left",
+    bgAccent:  "rgba(245,158,11,0.06)",
+  },
+  {
+    number:    "03",
+    icon:      "/assets/icono-clubs.png",
+    iconAlt:   "Ilustración del localizador de clubs cannábicos",
+    label:     "Directorio de clubs",
+    title:     "Encuentra tu asociación más cercana",
+    desc:      "Directorio verificado de asociaciones cannábicas en España. Filtra por distancia, consulta servicios disponibles y accede a la información de contacto. Solo información, sin intermediarios.",
+    chips:     ["Solo España", "Datos verificados", "Geolocalización"],
+    accentHex: "#34d399",
+    imgSide:   "right",
+    bgAccent:  "rgba(52,211,153,0.06)",
+  },
+] as const;
+---
+
+<section class="py-24 px-5" aria-labelledby="funciones-title">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-16">
+      <p class="text-dojo-green text-xs font-semibold tracking-[0.25em] uppercase mb-3">Funciones</p>
+      <h2 id="funciones-title" class="font-display font-black text-3xl md:text-5xl text-white">
+        Todo lo que necesitas <span class="text-dojo-gold">saber</span>
+      </h2>
+      <p class="mt-4 text-dojo-muted max-w-md mx-auto leading-relaxed">
+        Tres herramientas pensadas para informarte mejor. SenseiHerb es una guía, no una tienda.
+      </p>
+    </div>
+
+    <!-- Tarjetas de funciones -->
+    <div class="flex flex-col gap-5">
+      {FEATURES.map((f) => (
+        <article
+          class="group relative grid grid-cols-1 md:grid-cols-[1fr_420px] rounded-3xl overflow-hidden border border-dojo-border transition-all hover:border-white/10"
+          style={`background: #0d1710; ${f.imgSide === "left" ? "direction: rtl;" : ""}`}
+        >
+          {/* Texto — siempre LTR */}
+          <div
+            class="relative flex flex-col justify-center gap-5 p-8 md:p-12"
+            style="direction: ltr;"
+          >
+            <!-- Número decorativo de fondo -->
+            <span
+              class="absolute -top-2 right-6 font-display font-black leading-none select-none pointer-events-none opacity-[0.05]"
+              style="font-size: 8rem;"
+              aria-hidden="true"
+            >
+              {f.number}
+            </span>
+
+            <div class="flex items-center gap-2 relative z-10">
+              <span
+                class="text-xs font-bold tracking-[0.2em] uppercase"
+                style={`color: ${f.accentHex};`}
+              >
+                {f.label}
+              </span>
+              <span class="text-dojo-muted/30">·</span>
+              <span class="text-xs text-dojo-muted/40 font-mono">{f.number}</span>
+            </div>
+
+            <h3 class="relative z-10 font-display font-black text-2xl md:text-3xl text-white leading-tight">
+              {f.title}
+            </h3>
+
+            <p class="relative z-10 text-dojo-muted leading-relaxed text-[0.95rem] max-w-md">
+              {f.desc}
+            </p>
+
+            <div class="relative z-10 flex flex-wrap gap-2">
+              {f.chips.map((chip) => (
+                <span
+                  class="text-xs font-semibold px-3 py-1 rounded-full border"
+                  style={`color: ${f.accentHex}; border-color: ${f.accentHex}20; background: ${f.accentHex}0d;`}
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            <a
+              href="#registro"
+              class="relative z-10 self-start inline-flex items-center gap-1.5 text-sm font-semibold transition-all hover:gap-3 duration-200"
+              style={`color: ${f.accentHex};`}
+              aria-label={`Preregistrarme para ${f.title}`}
+            >
+              Quiero acceso anticipado
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          {/* Imagen — columna derecha, full-bleed sin padding */}
+          <div
+            class="relative overflow-hidden min-h-[260px] md:min-h-0"
+            style={`direction: ltr; background: radial-gradient(ellipse 90% 90% at 50% 50%, ${f.accentHex}15 0%, #080e0b 75%);`}
+          >
+            <!-- Línea divisoria sutil en desktop -->
+            <div
+              class="hidden md:block absolute left-0 inset-y-0 w-px"
+              style={`background: linear-gradient(to bottom, transparent, ${f.accentHex}20, transparent);`}
+              aria-hidden="true"
+            />
+
+            <img
+              src={f.icon}
+              alt={f.iconAlt}
+              class="absolute inset-0 w-full h-full object-contain p-8 md:p-10 transition-transform duration-700 group-hover:scale-105"
+              width="420"
+              height="320"
+              loading="lazy"
+            />
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Mockup strip -->
+    <div
+      class="mt-5 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-0 rounded-3xl overflow-hidden border border-dojo-border"
+      style="background: #0d1710;"
+    >
+      <!-- Imagen mockup -->
+      <div
+        class="relative flex items-end justify-center pt-8 px-8 md:px-12 bg-gradient-to-b md:bg-gradient-to-r from-dojo-green/5 to-transparent min-h-[200px] md:min-h-0 md:w-64"
+      >
+        <img
+          src="/assets/mockup-app.png"
+          alt="La app SenseiHerb en un móvil"
+          class="relative w-36 md:w-44 drop-shadow-[0_-8px_40px_rgba(52,211,153,0.2)] transition-transform group-hover:scale-105 duration-500"
+          width="176" height="352"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Texto -->
+      <div class="flex flex-col justify-center gap-5 p-8 md:p-12 border-t md:border-t-0 md:border-l border-dojo-border">
+        <h3 class="font-display font-black text-2xl md:text-3xl text-white">
+          Todo en una app,<br />gratis para empezar
+        </h3>
+        <p class="text-dojo-muted leading-relaxed text-sm max-w-md">
+          Sin instalación. Funciona como PWA desde tu navegador. Regístrate ahora y sé el primero en acceder cuando abramos.
+        </p>
+        <a
+          href="#registro"
+          class="self-start inline-flex items-center gap-2 h-12 px-6 rounded-2xl font-semibold text-sm text-white transition-all hover:scale-105 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-dojo-green focus-visible:outline-offset-2"
+          style="background: linear-gradient(135deg, #34d399, #059669);"
+        >
+          Quiero acceso anticipado
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <p class="text-xs text-dojo-muted/40">Solo para mayores de 18 años · Contenido orientativo</p>
+      </div>
+    </div>
+  </div>
+</section>

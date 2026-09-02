@@ -1,0 +1,105 @@
+---
+const STAGES = [
+  {
+    key:    "germinacion",
+    img:    "/assets/camino-germinacion.png",
+    belt:   "Blanco",
+    beltColor: "bg-white/90 text-dojo-bg",
+    stage:  "Germinación",
+    desc:   "El punto de partida. Aprende el ciclo de vida, entiende las semillas y da tus primeros pasos en el mundo del cannabis.",
+    dot:    "bg-white",
+  },
+  {
+    key:    "vegetativo",
+    img:    "/assets/camino-vegetativo.png",
+    belt:   "Verde",
+    beltColor: "bg-dojo-green text-dojo-bg",
+    stage:  "Vegetativo",
+    desc:   "El crecimiento se dispara. Explora variedades índica, sativa e híbrida y entende cómo cada una se expresa.",
+    dot:    "bg-dojo-green",
+  },
+  {
+    key:    "floracion",
+    img:    "/assets/camino-floracion.png",
+    belt:   "Marrón",
+    beltColor: "bg-amber-700 text-white",
+    stage:  "Floración",
+    desc:   "La fase más delicada. Domina perfiles de terpenos, cannabinoides y aprende a leer el momento óptimo.",
+    dot:    "bg-amber-700",
+  },
+  {
+    key:    "cosecha",
+    img:    "/assets/camino-cosecha.png",
+    belt:   "Negro",
+    beltColor: "bg-gray-900 text-white border border-white/20",
+    stage:  "Cosecha",
+    desc:   "El maestro sabe esperar. Conoce los secretos de la maduración y la diferencia entre cada variedad en su punto álgido.",
+    dot:    "bg-gray-700",
+  },
+] as const;
+---
+
+<section class="py-24 px-5" aria-labelledby="camino-title">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Encabezado -->
+    <div class="text-center mb-16">
+      <p class="text-dojo-gold text-xs font-semibold tracking-[0.25em] uppercase mb-3">El camino del cultivador</p>
+      <h2 id="camino-title" class="font-display font-black text-3xl md:text-5xl text-white">
+        De semilla a <span class="text-dojo-green">maestro</span>
+      </h2>
+      <p class="mt-4 text-dojo-muted max-w-lg mx-auto">
+        Como en las artes marciales, el conocimiento del cannabis se desarrolla en etapas. Cada cinturón representa un nivel de comprensión, no de consumo.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+
+      <!-- Línea conectora — escritorio -->
+      <div class="hidden md:block absolute top-24 left-0 right-0 h-px bg-gradient-to-r from-white/5 via-dojo-green/30 to-white/5" aria-hidden="true" />
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6">
+        {STAGES.map((s, i) => (
+          <article class="flex flex-col items-center text-center gap-4">
+
+            <!-- Número + imagen -->
+            <div class="relative">
+              <span class="absolute -top-3 -left-3 z-10 w-7 h-7 rounded-full bg-dojo-surface border border-dojo-border flex items-center justify-center text-xs font-bold text-dojo-muted">
+                {i + 1}
+              </span>
+              <div class="w-36 h-36 md:w-40 md:h-40 rounded-3xl overflow-hidden border border-dojo-border bg-dojo-surface shadow-card">
+                <img
+                  src={s.img}
+                  alt={`Etapa ${s.stage}`}
+                  class="w-full h-full object-cover"
+                  width="160"
+                  height="160"
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+              </div>
+            </div>
+
+            <!-- Cinturón -->
+            <span class={`inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold tracking-wide ${s.beltColor}`}>
+              Cinturón {s.belt}
+            </span>
+
+            <!-- Copy -->
+            <div>
+              <h3 class="font-display font-bold text-lg text-white mb-1">{s.stage}</h3>
+              <p class="text-sm text-dojo-muted leading-relaxed">{s.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- Separador -->
+    <div class="flex items-center gap-4 mt-20 opacity-15" aria-hidden="true">
+      <div class="flex-1 h-px bg-white/10" />
+      <img src="/assets/sensei-logo.png" alt="" class="w-7 h-auto" width="28" height="52" />
+      <div class="flex-1 h-px bg-white/10" />
+    </div>
+  </div>
+</section>
